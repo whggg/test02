@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/bohao.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<script src="js/flexible.debug.js"></script>
+	<script src="js/flexible_css.debug.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript">  
+    		$(function(){
+    			mui.init();
+                mui.plusReady(function() {
+                    // 扩展API加载完毕，现在可以正常调用扩展API
+					function dialTest() {  
+						plus.device.dial( b, false );  
+					}  
+					$('.box2_foot ul .bohao').click(function(e){
+    					dialTest();
+    				})
+    				$(document).on('click','#list-h',function(){
+	                	var c=  $(this).find('span').text();
+	                	function dialTest2() {  
+							plus.device.dial( c, false );  
+						} 
+						dialTest2();
+               		 });
+    				
+                });
+              
+              
+    			var attr= [];
+    			 $('.main ul li').click(function(e) {
+    			 	$('.box2').show();
+    			 	$('.box').hide();
+              		var a = $(this).find('h4').text();
+              		attr.push(a)
+               		b = attr.join("");
+               		$('.box2_head h2').text(b)
+               });
+    			 $('.box2_nav ul li').click(function(e) {
+              		var a = $(this).find('h4').text();
+              		attr.push(a)
+               		b = attr.join("");
+               		$('.box2_head h2').text(b)
+               });
+    			$('.box2_foot ul .remove').click(function(e){
+    				attr.pop();
+    				b = attr.join("");
+    				$('.box2_head h2').text(b)
+    				if ($('.box2_head h2').text()=="") {
+    					$('.box').show();
+    			 		$('.box2').hide();
+    				}
+    			})
+    			$('.box2_foot ul .hujiao').click(function(e){
+    				$('.box2_nav').toggle();
+    			})
+    		})
+              
+		</script>  
+		<script type="text/javascript">
+			$(function() {
+				// 联系人查询
+			    var search_input = $(".box2_head h2"),
+			        search_content = $(".mui-content");
+			        anjian = $(".box2_nav ul li")
+			    $(search_input).on("DOMNodeInserted", function() {
+			        if (search_input.text() == '') {
+			            $(search_content).show();
+			        }
+			    $(".mui-content li:contains(" + search_input.text().trim() + ")").show();
+			    $(".mui-content li:not(:contains(" + search_input.text().trim() + "))").hide();
+			});
+   		 	});
+		</script>
+		<script type="text/javascript">
+	         // 获取联系人
+          	 mui.init();
+                mui.plusReady(function() {
+                    // 扩展API加载完毕，现在可以正常调用扩展API
+                    plus.contacts.getAddressBook(plus.contacts.ADDRESSBOOK_PHONE, function(addressbook) {
+                        addressbook.find(["displayName", "phoneNumbers"], function(contacts) {
+                            for(var i = 0, len = contacts.length; i < len; i++) {
+                                var li = document.getElementById("mode").cloneNode(true);
+                                 li.innerHTML += '<div class="list-h" id="list-h"><a href="javascript:;"><p>'+contacts[i].displayName.substr(contacts[i].displayName.length-1,1)+'</p><h3>'+contacts[i].displayName +'&nbsp;&nbsp;&nbsp;<span>'+ (contacts[i].phoneNumbers.length == 0 ? "" : contacts[i].phoneNumbers[0].value)+'</span></h3></a></div>';
+                                 
+                                document.getElementById("listArea").appendChild(li);
+                            }
+                        }, function() {
+                            mui.toast("获取电话簿失败 ");
+                        }, {
+                            multiple: true
+                        });
+                    }, function(e) {
+                        mui.toast("获取电话簿失败 " + e.message);
+                    });
+
+                });
+		</script>
+</head>
+<body>
+	<div class="box">
+
+		<!-- 头部区域 -->
+		<div class="header">
+			<!-- <div class="header_c"><h2>V利购</h2></div> -->
+			<div class="header_c"><h2>V利购</h2></div>
+			<div class="header_r"><span>余额</span></div>
+		</div>
+	
+		<!-- 中间内容区域 -->
+		<!-- banner区域 -->
+		<div class="banner">
+			<div class="swiper-container">
+			  <div class="swiper-wrapper">
+			    <div class="swiper-slide"><img src="http://img5.imgtn.bdimg.com/it/u=2282477217,1925643602&fm=27&gp=0.jpg" alt=""></div>
+			    <div class="swiper-slide"><img src="http://img2.imgtn.bdimg.com/it/u=1186068502,2935548724&fm=27&gp=0.jpg" alt=""></div>
+			  </div>
+			</div>
+		</div>
+
+		<!-- 拨号界面 -->
+		<div class="main">
+			<ul>
+				<li>
+					<h4>1</h4>
+					<span>~</span>
+				</li>
+				<li>
+					<h4>2</h4>
+					<span>ABC</span>
+				</li>
+				<li>
+					<h4>3</h4>
+					<span>DEF</span>
+				</li>
+				<li>
+					<h4>4</h4>
+					<span>GHI</span>
+				</li>
+				<li>
+					<h4>5</h4>
+					<span>JKL</span>
+				</li>
+				<li>
+					<h4>6</h4>
+					<span>MNO</span>
+				</li>
+				<li>
+					<h4>7</h4>
+					<span>PQRS</span>
+				</li>
+				<li>
+					<h4>8</h4>
+					<span>TUV</span>
+				</li>
+				<li>
+					<h4>9</h4>
+					<span>WXYZ</span>
+				</li>
+				<li>
+					<h4>*</h4>
+				</li>
+				<li>
+					<h4>0</h4>
+					<span>+</span>
+				</li>
+				<li>
+					<h4>#</h4>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<!-- 底部区域 -->
+		<div class="footer">
+			<ul>
+				<li><a href="bohao.html" style="color: #1db38d;"><div class="img"><img src="img/phone02.png" alt=""></div><span>拨号</span></a></li>
+				<li><a href="tongxunlu.html"><div class="img"><img src="img/tongxun01.png" alt=""></div><span>通讯录</span></a></li>
+				<li><a href="index.html"><div class="img"><img src="img/shangcheng01.png" alt=""></div><span>淘商城</span></a></li>
+				<li><a href="yingyeting.html"><div class="img"><img src="img/yingye01.png" alt=""></div><span>营业厅</span></a></li>
+				<li><a href="gerenzhongxin.html"><div class="img"><img src="img/geren01.png" alt=""></div><span>个人中心</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+    <!-- 虚拟拨号 -->
+    <div class="box2">
+    	<!-- 虚拟头部区域 -->
+    	<div class="box2_head">
+    		<h2></h2>
+    	</div>
+    	<!-- 通讯录 -->
+    	<div class="mui-content" style="margin-top: 1.38rem;margin-bottom: 2rem;">
+        	<ul class="mui-table-view" id="listArea">
+                <li class="mui-table-view-cell" id="mode" style="padding:0;">
+                  <!--  <div class='list-h' id='list-h'><a href="javascript:;"><p>丽</p><h3>安丽&nbsp;&nbsp;&nbsp;<span>15545090181</span></h3></a></div>
+                   <div class='list-h' id='list-h'><a href="javascript:;"><p>丽</p><h3>安丽&nbsp;&nbsp;&nbsp;<span>15505090181</span></h3></a></div> -->
+                </li>
+       		</ul>
+    	</div>
+    	<!-- 虚拟拨号键区域 -->
+    	<div class="box2_nav">
+    		<ul>
+				<li>
+					<h4>1</h4>
+					<span>~</span>
+				</li>
+				<li>
+					<h4>2</h4>
+					<span>ABC</span>
+				</li>
+				<li>
+					<h4>3</h4>
+					<span>DEF</span>
+				</li>
+				<li>
+					<h4>4</h4>
+					<span>GHI</span>
+				</li>
+				<li>
+					<h4>5</h4>
+					<span>JKL</span>
+				</li>
+				<li>
+					<h4>6</h4>
+					<span>MNO</span>
+				</li>
+				<li>
+					<h4>7</h4>
+					<span>PQRS</span>
+				</li>
+				<li>
+					<h4>8</h4>
+					<span>TUV</span>
+				</li>
+				<li>
+					<h4>9</h4>
+					<span>WXYZ</span>
+				</li>
+				<li>
+					<h4>*</h4>
+				</li>
+				<li>
+					<h4>0</h4>
+					<span>+</span>
+				</li>
+				<li>
+					<h4>#</h4>
+				</li>
+				<div class="clear"></div>
+			</ul>
+    	</div>
+    	<!-- 虚拟底部区域 -->
+    	<div class="box2_foot">
+    		<ul>
+    			<li class="hujiao"><img src="img/hujiao.png" alt=""><span>呼叫</span></li>
+    			<li class="bohao"><div class="box2_img"><img src="img/bohao.png" alt=""></div></li>
+    			<li class="remove"><img src="img/remove.png" alt=""><span>删除</span></li>
+    		</ul>
+    	</div>
+    </div>
+
+	<script>
+		 document.addEventListener("plusready", function() {
+	        // 注册返回按键事件
+	        plus.key.addEventListener('backbutton', function() {
+	            // 事件处理
+	            window.history.back();
+	        }, false);
+	    });
+	</script>
+	<script type="text/javascript" src="js/immersed.js" ></script>
+	<script>
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: true,//可选选项，自动滑动
+		})
+	</script>
+</body>
+</html>

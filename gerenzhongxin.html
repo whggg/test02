@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/gerenzhongxin.css">
+	<script src="js/flexible.debug.js"></script>
+	<script src="js/flexible_css.debug.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+</head>
+<body>
+	<div class="box">
+	<!-- 头部区域 -->
+		<div class="header">
+			<a href="" class="qd">签到</a>
+			<img src="img/zhuxiao.png" alt="" class="zhuxiao">
+			<div class="header_c">
+				<div class="img">
+					<img src="http://img5.imgtn.bdimg.com/it/u=2282477217,1925643602&fm=27&gp=0.jpg" alt="">
+				</div>
+				<div class="header_con">
+					<div class="txt"><img src="img/zhanghao.png" alt=""><p><span>账号：</span><span>17695199531</span></p></div>
+					<div class="txt"><img src="img/yue.png" alt=""><p><span>余额：</span><span>50.00</span></p></div>
+				</div>
+			</div>
+		</div>
+	<!-- 中间内容区域 -->
+		<!-- nav导航区域 -->
+		<div class="nav">
+			<ul>
+				<li><a href=""><div class="img"><img src="img/nav05.jpg" alt=""></div><span>我的优惠券</span></a></li>
+				<li><a href=""><div class="img"><img src="img/nav06.jpg" alt=""></div><span>兑换商城</span></a></li>
+				<li><a href=""><div class="img"><img src="img/nav07.jpg" alt=""></div><span>意见反馈</span></a></li>
+				<li><a href=""><div class="img"><img src="img/nav08.jpg" alt=""></div><span>软件升级</span></a></li>
+			</ul>
+		</div>
+		<!-- main内容区域 -->
+		<div class="main">
+			<ul>
+				<li><a href=""><div class="img"><img src="img/main01.jpg" alt=""></div><span>分销中心</span></a></li>
+				<li><a href=""><div class="img"><img src="img/main02.jpg" alt=""></div><span>管理员登录</span></a></li>
+				<li><a href=""><div class="img"><img src="img/main03.jpg" alt=""></div><span>话费充值</span></a></li>
+				<li><a href=""><div class="img"><img src="img/main04.jpg" alt=""></div><span>微信分享</span></a></li>
+				<li><a href=""><div class="img"><img src="img/main05.jpg" alt=""></div><span>主叫认证</span></a></li>
+				<li><a href=""><div class="img"><img src="img/main06.jpg" alt=""></div><span>只能拨号</span></a></li>
+				<li style="border-bottom:0;"><a href=""><div class="img"><img src="img/main07.jpg" alt=""></div><span>话费查询</span></a></li>
+				<li style="border-bottom:0;"><a href=""><div class="img"><img src="img/main08.jpg" alt=""></div><span>资费说明</span></a></li>
+			</ul>
+		</div>
+		<!-- 底部区域 -->
+		<div class="footer">
+			<ul>
+				<li><a href="bohao.html"><div class="img"><img src="img/phone01.png" alt=""></div><span>拨号</span></a></li>
+				<li><a href="tongxunlu.html"><div class="img"><img src="img/tongxun01.png" alt=""></div><span>通讯录</span></a></li>
+				<li><a href="index.html"><div class="img"><img src="img/shangcheng01.png" alt=""></div><span>淘商城</span></a></li>
+				<li><a href="yingyeting.html"><div class="img"><img src="img/yingye01.png" alt=""></div><span>营业厅</span></a></li>
+				<li><a href="gerenzhongxin.html" style="color: #1db38d;"><div class="img"><img src="img/geren02.png" alt=""></div><span>个人中心</span></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<script>
+		// H5 plus事件处理
+			var as='pop-in';// 默认窗口动画
+			function plusReady(){
+				// 隐藏滚动条
+				plus.webview.currentWebview().setStyle({scrollIndicator:'none'});
+				// Android处理返回键
+				plus.key.addEventListener('backbutton',function(){
+					('iOS'==plus.os.name)?plus.nativeUI.confirm('确认退出？', function(e){
+						if(e.index>0){
+							plus.runtime.quit();
+						}
+					}, null, ['取消','确定']):(confirm('确认退出？')&&plus.runtime.quit());
+				},false);
+				compatibleAdjust();
+			}
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener('plusready',plusReady,false);
+			}
+		</script>
+	<script type="text/javascript" src="js/immersed.js" ></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+@charset "utf-8";
+.box{
+	width: 100%;
+	height: auto;
+	background: #fff;
+}
+/*头部区域*/
+.header{
+	width: 100%;
+	height:1.38rem;
+	overflow: hidden; 
+	background: #fd463e;
+	text-align: center;
+	position: relative;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.header_r{
+	position: absolute;
+	top: 0.4rem;
+	right: 0.3rem;
+}
+.header_r button{
+	border:0;
+	background: 0;
+	color: #fff;
+	outline: none;
+	font-size: 0.43rem;
+}
+.header_l{
+	position: absolute;
+	top: 0.34rem;
+	left: 0.3rem;
+}
+.header_c{
+	width: 6.5rem;
+	height: 0.87rem;
+	box-sizing:border-box;
+	padding:0 0.2rem;
+	overflow: hidden;
+	border-radius: 20px;
+	background: #ededed;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.header_c input{
+	width: 90%;
+	height: 100%;
+	background: 0;
+	outline: 0;
+	border:0;
+	text-indent: 1em;
+	font-size: 0.43rem;
+}
+/*nav菜单区域*/
+.nav{
+	width: 100%;
+	height: 1.48rem;
+	line-height: 1.48rem;
+	overflow: auto;
+	background: #ededed;
+	margin-top: 1.36rem;
+}
+.nav ul{
+	list-style-type: none;
+	height: 100%;
+	width: 250%;
+	overflow-y: hidden;
+	 overflow-x: auto;
+}
+.nav ul::-webkit-scrollbar {
+   display: none;
+}
+.nav ul li{
+	/*display: inline-block;*/
+	float: left;
+	height: 100%;
+	width: 8%;
+	text-align: center;
+	font-size: 0.46rem;
+}
+.active{
+	box-sizing:border-box;
+	color: #c73739;
+	border-bottom: 2px solid #fd0000;
+}
+/*商品列表区域*/
+.main{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.main_top{
+	width: 100%;
+	height: 1.21rem;
+	background: #fff;
+	font-size: 0.36rem;
+	border-bottom: 1px solid #c93436;
+	display: block!important;
+}
+.main_top ul{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.main_top ul li{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.main_top ul li span{
+	margin-right: 0.1rem;
+}
+/*全部商品*/
+.main2,.main3,.main4,.main5,.main6,.main7,.main8,.main9,.main10,.main11,.main12{
+	display: none;
+}
+.mains{
+	width: 96%;
+	background: #fff;
+	margin: 0.2rem auto;
+	height: auto;
+}
+.list_con{
+	margin-bottom: 10px;
+	height: 3.42rem;
+	background: #eee;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.list_con .list_cl{
+	width: 2.6rem;
+	height: 3rem;
+	overflow: hidden;
+	padding:0.12rem;
+}
+.list_con .list_cl img{
+	width: 100%;
+	height: 100%;
+}
+.list_con .list_cr{
+	box-sizing:border-box;
+	padding: 0 0.3rem;
+	/*width: 6.19rem;*/
+	width: 70%;
+	height: 3rem;
+	overflow: hidden;
+	color: #000;
+	position: relative;
+}
+.list_con .list_cr h4{
+	font-weight: bold;
+	font-size: 0.36rem;
+}
+.list_con .list_cr p{
+	height: 0.6rem;
+	line-height: 0.6rem;
+	color: #cacaca;
+	font-size: 0.33rem;
+}
+.list_con .list_cr strong{
+	color: #e98502;
+	height: 1rem;
+	line-height: 1rem;
+	font-size: 0.4rem;
+}
+.list_con .list_cr button{
+	background: #f10110;
+	color: #fff;
+	border-radius: 5px;
+	border:0;
+	padding: 0.20rem 0.19rem;
+	font-size: 0.33rem;
+	position: absolute;
+	right: 0.3rem;
+	bottom: 0;
+}

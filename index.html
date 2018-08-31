@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<script src="js/flexible.debug.js"></script>
+	<script src="js/flexible_css.debug.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+</head>
+<body>
+	<div class="box">
+	<!-- 头部区域 -->
+		<div class="header">
+			<div class="header_l"><img src="img/sousuo.png" alt=""><input type="text" placeholder="输入商品名称搜索"></div>
+			<div class="header_r">
+				<img src="img/dingdan.png" alt="">
+			</div>
+		</div>
+	
+	<!-- 中间内容区域 -->
+		<!-- banner区域 -->
+		<div class="banner">
+			<div class="swiper-container">
+			  <div class="swiper-wrapper">
+			    <div class="swiper-slide"><img src="http://img5.imgtn.bdimg.com/it/u=2282477217,1925643602&fm=27&gp=0.jpg" alt=""></div>
+			    <div class="swiper-slide"><img src="http://img2.imgtn.bdimg.com/it/u=1186068502,2935548724&fm=27&gp=0.jpg" alt=""></div>
+			  </div>
+			</div>
+		</div>
+		<!-- nav导航 -->
+		<div class="nav">
+			<ul>
+				<li><a href="shangpin_list.html"><div class="img"><img src="img/nav01.jpg" alt=""></div><span>查看全部</span></a></li>
+				<li><a href=""><div class="img"><img src="img/nav02.jpg" alt=""></div><span>小编精选</span></a></li>
+				<li><a href=""><div class="img"><img src="img/nav03.jpg" alt=""></div><span>超级人气</span></a></li>
+				<li><a href=""><div class="img"><img src="img/nav04.jpg" alt=""></div><span>9块9包邮</span></a></li>
+				<li><a href=""><div class="img"><img src="img/nav01.jpg" alt=""></div><span>今日上新</span></a></li>
+			</ul>
+		</div>
+		<!-- 商品列表 -->
+		<div class="list">
+			<div class="list_top">
+			    <div class="img"><img src="img/gonggao.png" alt=""></div><marquee direction="left" behavior="scroll" scrollamount="1" scrolldelay="0" loop="-1"  hspace="10" vspace="10">赶快使用话费兑换</marquee>
+			</div>
+			<div class="list_con">
+				<div class="list_cl">
+					<img src="http://img5.imgtn.bdimg.com/it/u=2282477217,1925643602&fm=27&gp=0.jpg" alt="">
+				</div>
+				<div class="list_cr">
+					<h4>韩版男童韩版男童韩版男童韩童韩童韩</h4>
+					<p>淘宝价：68.00</p>
+					<p>销量：73</p>
+					<strong>可抵扣：10</strong>
+					<button>立即兑换</button>
+				</div>
+			</div>
+		</div>
+	<!-- 底部区域 -->
+		<div class="footer">
+			<ul>
+				<li><a href="bohao.html"><div class="img"><img src="img/phone01.png" alt=""></div><span>拨号</span></a></li>
+				<li><a href="tongxunlu.html"><div class="img"><img src="img/tongxun01.png" alt=""></div><span>通讯录</span></a></li>
+				<li><a href="index.html" style="color: #1db38d;"><div class="img"><img src="img/shangcheng02.png" alt=""></div><span>淘商城</span></a></li>
+				<li><a href="yingyeting.html"><div class="img"><img src="img/yingye01.png" alt=""></div><span>营业厅</span></a></li>
+				<li><a href="gerenzhongxin.html"><div class="img"><img src="img/geren01.png" alt=""></div><span>个人中心</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+	<script>
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: true,//可选选项，自动滑动
+		})
+	</script>
+	<script>
+		// H5 plus事件处理
+			var as='pop-in';// 默认窗口动画
+			function plusReady(){
+				// 隐藏滚动条
+				plus.webview.currentWebview().setStyle({scrollIndicator:'none'});
+				// Android处理返回键
+				plus.key.addEventListener('backbutton',function(){
+					('iOS'==plus.os.name)?plus.nativeUI.confirm('确认退出？', function(e){
+						if(e.index>0){
+							plus.runtime.quit();
+						}
+					}, null, ['取消','确定']):(confirm('确认退出？')&&plus.runtime.quit());
+				},false);
+				compatibleAdjust();
+			}
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener('plusready',plusReady,false);
+			}
+		</script>
+	<script type="text/javascript" src="js/immersed.js" ></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/tongxunlu.css">
+	<script src="js/flexible.debug.js"></script>
+	<script src="js/flexible_css.debug.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/mui.min.js"></script>
+</head>
+<body>
+	<div class="box">
+		<script type="text/javascript">
+			$(function() {
+				mui.init();
+                mui.plusReady(function() {
+                    // 扩展API加载完毕，现在可以正常调用扩展API
+    				$(document).on('click','#list-h',function(){
+	                	var c=  $(this).find('span').text();
+	                	function dialTest2() {  
+							plus.device.dial( c, false );  
+						} 
+						dialTest2();
+               		 });
+    				
+                });
+				// 联系人查询
+			    var search_input = $(".find input"),
+			        search_content = $(".mui-content");
+			    $(search_input).on("keyup", function() {
+			        if (search_input.val() == '') {
+			            $(search_content).show();
+			        }
+			    $(".mui-content li:contains(" + search_input.val().trim() + ")").show();
+			    $(".mui-content li:not(:contains(" + search_input.val().trim() + "))").hide();
+			});
+   		 	});
+		</script>
+        <script type="text/javascript">
+	          	$(function(){
+					var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+					$(window).on('resize', function () {
+					    var nowClientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+					    if (clientHeight > nowClientHeight) {
+					        //键盘弹出的事件处理
+					       $(".footer").css("position","static");
+					    }
+					    else {
+					        //键盘收起的事件处理
+					        $(".footer").css("position","fixed");
+					    }
+					});
+					
+				});
+
+	         // 获取联系人
+          	 mui.init();
+                mui.plusReady(function() {
+                    // 扩展API加载完毕，现在可以正常调用扩展API
+                    plus.contacts.getAddressBook(plus.contacts.ADDRESSBOOK_PHONE, function(addressbook) {
+                        addressbook.find(["displayName", "phoneNumbers"], function(contacts) {
+                            for(var i = 0, len = contacts.length; i < len; i++) {
+                                var li = document.getElementById("mode").cloneNode(true);
+                                 li.innerHTML += '<div class="list-h" id="list-h"><a href="javascript:;"><p>'+contacts[i].displayName.substr(contacts[i].displayName.length-1,1)+'</p><h3>'+contacts[i].displayName +'&nbsp;&nbsp;&nbsp;<span>'+ (contacts[i].phoneNumbers.length == 0 ? "" : contacts[i].phoneNumbers[0].value)+'</span></h3></a></div>';
+                                 
+                                document.getElementById("listArea").appendChild(li);
+                            }
+                        }, function() {
+                            mui.toast("获取电话簿失败 ");
+                        }, {
+                            multiple: true
+                        });
+                    }, function(e) {
+                        mui.toast("获取电话簿失败 " + e.message);
+                    });
+
+                });
+		</script>
+
+			<header class="mui-bar mui-bar-nav">
+            	<h1 class="mui-title top">通讯录</h1>
+        	</header>
+        	<div class="find"><input type="text" placeholder="查找联系人"></div>
+        	<div class="mui-content" style="margin-top: 3rem;margin-bottom: 2rem;">
+            	<ul class="mui-table-view" id="listArea">
+	                <li class="mui-table-view-cell" id="mode" style="padding:0;">
+	                   <!-- <div class='list-h' id='list-h'><a href=""><p>丽</p><h3>安丽&nbsp;&nbsp;&nbsp;<span>15545090181</span></h3></a></div> -->
+	                </li>
+           		</ul>
+        	</div>
+			
+	<!-- 底部区域 -->
+		<div class="footer">
+			<ul>
+				<li><a href="bohao.html"><div class="img"><img src="img/phone01.png" alt=""></div><span>拨号</span></a></li>
+				<li><a href="tongxunlu.html" style="color: #1db38d;"><div class="img"><img src="img/tongxun02.png" alt=""></div><span>通讯录</span></a></li>
+				<li><a href="index.html"><div class="img"><img src="img/shangcheng01.png" alt=""></div><span>淘商城</span></a></li>
+				<li><a href="yingyeting.html"><div class="img"><img src="img/yingye01.png" alt=""></div><span>营业厅</span></a></li>
+				<li><a href="gerenzhongxin.html"><div class="img"><img src="img/geren01.png" alt=""></div><span>个人中心</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+	
+	<script>
+		// H5 plus事件处理
+			var as='pop-in';// 默认窗口动画
+			function plusReady(){
+				// 隐藏滚动条
+				plus.webview.currentWebview().setStyle({scrollIndicator:'none'});
+				// Android处理返回键
+				plus.key.addEventListener('backbutton',function(){
+					('iOS'==plus.os.name)?plus.nativeUI.confirm('确认退出？', function(e){
+						if(e.index>0){
+							plus.runtime.quit();
+						}
+					}, null, ['取消','确定']):(confirm('确认退出？')&&plus.runtime.quit());
+				},false);
+				compatibleAdjust();
+			}
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener('plusready',plusReady,false);
+			}
+		</script>
+	<script type="text/javascript" src="js/immersed.js" ></script>
+</body>
+</html>
